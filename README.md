@@ -22,3 +22,12 @@ https://capec.mitre.org/data/definitions/170.html
 http://blog.spiderlabs.com/2012/12/class-101-automating-the-process-of-fingerprinting-web-applications-and-identifying-vulnerabilities.html
 
 
+
+Testing which application is running at a certain URL
+
+Plugins
+-------
+
+The main logic will be implemented as plugins. 
+
+A plugin will be able to request testing a certain URL.
