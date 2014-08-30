@@ -1,0 +1,7 @@
+Detection Infos:
+
+/wp-admin
+generator tag inside html
+readme.html
+wp-includes verweise
+
