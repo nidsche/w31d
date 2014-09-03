@@ -28,11 +28,12 @@ config = ConfigParser.SafeConfigParser(defaults = {'user-agent': 'Mozilla/5.0'})
 alphabet="abcdefghijklmnopqrstuvwxyz0123456789"
 
 fdlist=[]
-pluginList=[]
+pluginList={}
 
 debug_lvl=20
 normalHeaders={}
 
+tval=''
 
 def loadPlugins(directory="plugins/"):
     # XXX read directory
@@ -56,8 +57,11 @@ def loadPlugins(directory="plugins/"):
         pn = pn.replace(".py","")
         print "Loading: " +pn
         plug = __import__(pn)
-        pluginList.append(plug)
-        print plug.getName()
+        pluginList[pn]=plug.Plugin()
+        print pluginList[pn].getName()
+	print pluginList[pn].getter()
+	pluginList[pn].setter("jibbi"+pn)
+	print pluginList[pn].getter()
     return
 
 def readConfig():
@@ -153,7 +157,8 @@ def printFilesFound():
 def listPlugins():
     print "Active Plugins"
     for p in pluginList:
-        print p.getName()
+        print pluginList[p].getName()
+	print pluginList[p].getter()
 
 def main():
     readConfig()
